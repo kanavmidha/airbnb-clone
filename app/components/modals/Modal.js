@@ -30,7 +30,7 @@ export default function Modal({
 
         setShowModal(false)
         setTimeout(() => {
-            onClose
+            onClose()
         }, 300);
     }, [disabled, onClose])
 
@@ -39,7 +39,7 @@ export default function Modal({
             return
         }
 
-        onSubmit
+        onSubmit()
     }, [disabled, onSubmit])
 
     const handleSecondaryAction = useCallback(()=>{
@@ -124,7 +124,7 @@ export default function Modal({
                                 ">
                                     <IoMdClose size={18}/>
                                 </button>
-                                <div className="text-lg font-semibold text-center">
+                                <div className="text-lg font-semibold mx-auto">
                                     {title}
                                 </div>
                             </div>

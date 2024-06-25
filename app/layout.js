@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={font.className}>
-        <RegisterModal isOpen/>
+        <RegisterModal/>
         <Navbar/>
         {children}
       </body>
