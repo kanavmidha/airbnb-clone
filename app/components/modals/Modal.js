@@ -14,7 +14,7 @@ export default function Modal({
     secondaryActionLabel,
     title,
     body,
-
+    footer
 }) {
 
     const [showModal, setShowModal] = useState(isOpen)
@@ -155,6 +155,7 @@ export default function Modal({
                                     onClick={handleSubmit}
                                     />
                                 </div>
+                                {footer}
                             </div>
                         </div>
                     </div>

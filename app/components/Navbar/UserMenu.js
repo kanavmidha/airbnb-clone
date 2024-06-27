@@ -69,7 +69,7 @@ export default function UserMenu () {
                     <div className="flex flex-col cursor-pointer">
                         <>
                             <MenuItem
-                                onClick={registerModal.onOpen}
+                                onClick={()=>{}}
                                 label="Login"
                             />
                             <MenuItem 

@@ -8,6 +8,9 @@ import useRegisterModal from "@/app/hooks/useRegisterModal"
 import Modal from "./Modal"
 import Heading from "../Heading"
 import Input from "../inputs/Input"
+import toast from "react-hot-toast"
+import Button from "../Button"
+import { AiFillGithub } from "react-icons/ai"
 
 export default function RegisterModal () {
 
@@ -36,7 +39,7 @@ export default function RegisterModal () {
             registerModal.onClose()
         })
         .catch((error)=> {
-            console.log(error)
+            toast.error("Oops!")
         })
         .finally(()=>{
             setIsLoading(false)
@@ -68,11 +71,50 @@ export default function RegisterModal () {
             <Input
             id="password"
             label="Password"
+            type="password"
             register={register}
             errors={errors}
             disabled={isLoading}
             required
             />
+        </div>
+    )
+
+    const footerContent = (
+        <div className="flex flex-col gap-4 mt-3">
+            <hr/>
+            <Button
+                outline
+                label="Continue with Google"
+                icon={FcGoogle}
+                onClick={()=>{}}
+            />
+            <Button
+                outline
+                label="Continue with Github"
+                icon={AiFillGithub}
+                onClick={()=>{}}
+            />
+            <div className="
+                text-neutral-500
+                text-center
+                mt-4
+                font-light
+            ">
+                <div className=" justify-center flex flex-row items-center gap-2">
+                    <div>
+                        Already have an account?
+                    </div>
+                    <div onClick={registerModal.onClose}
+                     className="
+                        text-neutral-800
+                        cursor-pointer
+                        hover:underline
+                    ">
+                        Log In
+                    </div>
+                </div>
+            </div>
         </div>
     )
 
@@ -85,6 +127,7 @@ export default function RegisterModal () {
             actionLabel="Continue"
             onClose={registerModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
+            footer={footerContent}
         />
     )
 }
