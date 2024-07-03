@@ -88,7 +88,7 @@ export default function LoginModal () {
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
-                onClick={()=>{}}
+                onClick={()=>signIn('google')}
             />
             <div className="
                 text-neutral-500

@@ -51,7 +51,7 @@ export default function UserMenu ({currentUser}) {
                 ">
                     <AiOutlineMenu/>
                     <div className="hidden md:block ml-3">
-                        <Avatar/>
+                        <Avatar src={currentUser?.image}/>
                     </div>
                 </div>
             </div>
