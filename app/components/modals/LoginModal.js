@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { FcGoogle } from "react-icons/fc"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { useForm } from "react-hook-form"
 import useRegisterModal from "@/app/hooks/useRegisterModal"
 import Modal from "./Modal"
@@ -55,6 +55,11 @@ export default function LoginModal () {
         })
     }
 
+    const toggle = useCallback(()=>{
+        loginModal.onClose()
+        registerModal.onOpen()
+    }, [loginModal, registerModal])
+
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading 
@@ -98,15 +103,15 @@ export default function LoginModal () {
             ">
                 <div className=" justify-center flex flex-row items-center gap-2">
                     <div>
-                        Already have an account?
+                        First time using Airbnb?
                     </div>
-                    <div onClick={registerModal.onClose}
+                    <div onClick={toggle}
                      className="
                         text-neutral-800
                         cursor-pointer
                         hover:underline
                     ">
-                        Log In
+                        Create an account
                     </div>
                 </div>
             </div>

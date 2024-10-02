@@ -4,6 +4,7 @@ import Container from "@/app/components/Container"
 import Logo from "./Logo"
 import Search from "./Search"
 import UserMenu from "./UserMenu"
+import Categories from "./Categories"
 
 export default function Navbar ({currentUser}) {
     return(
@@ -24,6 +25,7 @@ export default function Navbar ({currentUser}) {
                     </div>
                 </Container>
             </div>
+            <Categories/>
        </div> 
     )
 }
