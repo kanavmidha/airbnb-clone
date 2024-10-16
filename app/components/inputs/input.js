@@ -1,5 +1,7 @@
 'use client'
 
+import { BiDollar } from "react-icons/bi"
+
 export default function Input ({
     id,
     label,

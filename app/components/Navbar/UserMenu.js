@@ -7,21 +7,31 @@ import MenuItem from "./MenuItem"
 import useRegisterModal from "@/app/hooks/useRegisterModal"
 import useLoginModal from "@/app/hooks/useLoginModal"
 import { signOut } from "next-auth/react"
+import useRentModal from "@/app/hooks/useRentModal"
 
 export default function UserMenu ({currentUser}) {
 
     const [isOpen, setIsOpen] = useState(false)
     const registerModal = useRegisterModal()
     const loginModal = useLoginModal()
+    const rentModal = useRentModal()
 
     const toggleOpen = useCallback(()=>{
         setIsOpen((value)=>!value)
     }, [])
 
+    const onRent = useCallback(()=>{
+        if(!currentUser) {
+            return loginModal.onOpen()
+        }
+
+        rentModal.onOpen()
+    },[currentUser, loginModal, rentModal])
+
     return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
-                <div onClick={()=>{}}
+                <div onClick={onRent}
                 className="
                 hidden
                 md:block
@@ -89,7 +99,7 @@ export default function UserMenu ({currentUser}) {
                                     label="My Properties"
                                 />
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={rentModal.onOpen}
                                     label="Airbnb my home"
                                 />
                                 <hr/>
