@@ -8,9 +8,10 @@ import useRegisterModal from "@/app/hooks/useRegisterModal"
 import useLoginModal from "@/app/hooks/useLoginModal"
 import { signOut } from "next-auth/react"
 import useRentModal from "@/app/hooks/useRentModal"
+import { useRouter } from "next/navigation"
 
 export default function UserMenu ({currentUser}) {
-
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const registerModal = useRegisterModal()
     const loginModal = useLoginModal()
@@ -83,7 +84,7 @@ export default function UserMenu ({currentUser}) {
                         {currentUser ? (
                             <>
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={() => router.push('/trips')}
                                     label="My Trips"
                                 />
                                 <MenuItem
@@ -91,7 +92,7 @@ export default function UserMenu ({currentUser}) {
                                     label="My Favourites"
                                 />
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={() => router.push('/reservations')}
                                     label="My Reservations"
                                 />
                                 <MenuItem
