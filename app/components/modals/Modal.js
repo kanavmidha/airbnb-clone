@@ -47,7 +47,7 @@ export default function Modal({
             return
         }
 
-        secondaryAction
+        secondaryAction()
     }, [disabled, secondaryAction])
 
     if (!isOpen) {
