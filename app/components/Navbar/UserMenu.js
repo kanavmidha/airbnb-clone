@@ -88,7 +88,7 @@ export default function UserMenu ({currentUser}) {
                                     label="My Trips"
                                 />
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={() => router.push('/favorites')}
                                     label="My Favourites"
                                 />
                                 <MenuItem
@@ -96,7 +96,7 @@ export default function UserMenu ({currentUser}) {
                                     label="My Reservations"
                                 />
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={() => router.push('/properties')}
                                     label="My Properties"
                                 />
                                 <MenuItem
