@@ -42,3 +42,4 @@ export default async function Home({searchParams}) {
     </Container>
   );
 }
+//no sense comment
