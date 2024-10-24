@@ -4,6 +4,7 @@ import getCurrentUser from "../actions/getCurrentUser";
 import TripsClient from "./PropertiesClient";
 import getListings from "../actions/getListings";
 import PropertiesClient from "./PropertiesClient";
+import ClientOnly from "../components/ClientOnly";
 
 export default async function PropertiesPage() {
   const currentUser = await getCurrentUser()
@@ -23,10 +24,12 @@ export default async function PropertiesPage() {
 
   if (listings.length === 0) {
     return(
+      <ClientOnly>
         <EmptyState
             title="No properties found"
             subtitle="Looks like you have no properties."
         />
+      </ClientOnly>
     )
   }
 
