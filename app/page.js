@@ -31,17 +31,17 @@ export default async function Home({searchParams}) {
         2xl:grid-cols-6
         gap-8
       ">
-        {listings.map((listing) => {
-          return (
-            <ClientOnly>
+        <ClientOnly>
+          {listings.map((listing) => {
+            return (
               <ListingCard
                 currentUser={currentUser}
                 key={listing.id}
                 data={listing}
               />
-            </ClientOnly>
-          )
-        })}
+            )
+          })}
+        </ClientOnly>
       </div>
     </Container>
   );
