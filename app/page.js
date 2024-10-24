@@ -5,8 +5,6 @@ import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
 
-export const dynamic = 'force dynamic'
-
 export default async function Home({searchParams}) {
 
   const listings = await getListings(searchParams)
@@ -35,11 +33,13 @@ export default async function Home({searchParams}) {
       ">
         {listings.map((listing) => {
           return (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
+            <ClientOnly>
+              <ListingCard
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+              />
+            </ClientOnly>
           )
         })}
       </div>
