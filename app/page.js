@@ -1,5 +1,6 @@
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings from "./actions/getListings";
+import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
@@ -12,7 +13,9 @@ export default async function Home({searchParams}) {
 
   if (listings.length === 0) {
     return (
-      <EmptyState showReset/>
+      <ClientOnly>
+        <EmptyState showReset/>
+      </ClientOnly>
     )
   }
 
