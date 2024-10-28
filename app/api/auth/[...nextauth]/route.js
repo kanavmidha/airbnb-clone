@@ -49,7 +49,7 @@ export const authOptions = {
     pages: {
         signIn: '/',
     },
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     session: {
         strategy: 'jwt'
     },
